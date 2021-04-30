@@ -1,16 +1,33 @@
+.dedistract-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(100, 100, 100, .15);  
+    backdrop-filter: blur(20px);
+    z-index: 9999999;
+}
+
+.disable-dedistract .dedistract-backdrop {
+    display: none;
+}
+
 .dedistract-banner {
   position: fixed;
   width: 100vw;
   height: 50px;
-  top: calc(100vh - 50px);
+  top: calc(50vh - 25px);
+  z-index: 9999999;
   background: white;
   border-top: 1px solid black;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000;
   font-size: 18px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Lucida Grande';
 }
 
 .disable-dedistract .dedistract-banner {
@@ -23,6 +40,7 @@
   height: 50vh;
   top: 25vh;
   left: 25vw;
+  z-index: 9999999;
   background: white;
   border: 1px solid black;
   display: flex;
@@ -30,11 +48,18 @@
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Lucida Grande';
+  color: #000;
 }
 .dedistract-dialog > div {
   display: block;
 }
+
+.dedistract-dialog h1, .dedistract-dialog p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 .disable-dedistract .dedistract-dialog {
   display: none;
 }

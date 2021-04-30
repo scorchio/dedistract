@@ -1,7 +1,0 @@
-[role=main], [aria-hidden=false] {
-    visibility: hidden;
-}
-
-.disable-dedistract [role=main], .disable-dedistract [aria-hidden=false] {
-    visibility: visible;
-}

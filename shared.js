@@ -1,25 +1,25 @@
 function addBanner() {
+  const backdrop = toDOM(`
+    <div class="dedistract-backdrop"></div>
+  `)
+  document.body.appendChild(backdrop)
   const banner = toDOM(`
     <div class="dedistract-banner">
-      De-distract is active. Click to disable.
+      Azt mondtad, ezt nem szeretnéd annyit nézegetni. Klikkelj ide, ha meggondoltad magad.
     </div>
   `)
   document.body.appendChild(banner)
   banner.addEventListener("click", () => {
-    let delayInSeconds = 10
+    let delayInSeconds = 20
 
     const dialog = toDOM(`
       <div class="dedistract-dialog">
         <div>
-          Looks like you're trying to unblock.<br/>
-          <br/>
-          Here are some other things to consider doing instead: <br/>
-          - Talk to friends <br/>
-          - Read a book <br/>
-          - Watch a show <br/>
-          - Write in your journal <br/>
-          <br/>
-          To unblock, click and hold for <span class="dedistract-countdown">${delayInSeconds}</span> seconds. <br/>
+          <h1>Szóval... mégis szeretnéd itt múlatni az idődet?</h1>
+          <img src="https://media.giphy.com/media/Pn1gZzAY38kbm/giphy.gif" />
+          <p>Ez rendben is van akkor, hogyha nem akartál eredetileg mással foglalkozni.</p>
+          <p>Ha lenne jobb dolgod, akkor még mindig nem késő, csak zárd be ezt az oldalt :)</p>
+          <p>Ha viszont biztos vagy benne, hogy szeretnéd feloldani az oldalt, klikkelj és tarts nyomva a bal gombot <span class="dedistract-countdown">${delayInSeconds}</span> másodpercig.</p>
         </div>
       </div>
     `)
@@ -45,7 +45,15 @@ function addBanner() {
   })
 }
 
-addBanner()
+document.addEventListener('readystatechange', (event) => {
+   if (document.readyState === 'interactive') {
+        addBanner();
+   }
+});
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    //addBanner()
+});
 
 // Lots of sites are now single-page apps which use pushState. This makes it
 // difficult to make URL-based rules in manifest.json, and there's no API for

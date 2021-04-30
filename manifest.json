@@ -7,42 +7,21 @@
 
   "content_scripts": [
     {
-      "matches": ["https://www.reddit.com/*"],
-      "css": ["shared.css", "reddit-block.css"],
-      "js": ["shared.js", "reddit-block.js"]
-    },
-    {
       "matches": [
-        "https://www.youtube.com/*"
+          "https://*.reddit.com/*",
+          "https://*.youtube.com/*",
+          "https://*.facebook.com/*",
+          "https://*.twitter.com/*",
+          "https://*.telex.hu/*",
+          "https://*.hvg.hu/*",
+          "https://*.pinterest.com/*",
+          "https://*.wikipedia.org/*",
+          "https://*.linkedin.com/*",
+          "https://*.gmail.com/*"
       ],
-      "css": ["shared.css", "youtube-block.css"]
-    },
-    {
-      "matches": [
-        "https://news.ycombinator.com/",
-        "https://news.ycombinator.com/news"
-      ],
-      "css": ["shared.css", "hn-block.css"],
-      "js": ["shared.js", "hn-block.js"]
-    },
-    {
-      "matches": ["https://www.facebook.com/*"],
-      "css": ["shared.css", "fb-block.css"],
-      "js": ["shared.js", "fb-block.js"]
-    },
-    {
-      "matches": [
-        "https://twitter.com/*"
-      ],
-      "css": ["shared.css", "twitter-block.css"],
-      "js": ["shared.js", "twitter-block.js"]
-    },
-    {
-      "matches": [
-        "https://www.instagram.com/*"
-      ],
-      "css": ["shared.css", "instagram-block.css"],
-      "js": ["shared.js", "instagram-block.js"]
+      "css": ["shared.css"],
+      "js": ["shared.js"],
+      "run_at": "document_start"
     }
   ]
 }

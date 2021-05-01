@@ -55,6 +55,11 @@
   display: block;
 }
 
+.dedistract-dialog h1 {
+    font-size: 24px;
+    line-height: 1.5;
+}
+
 .dedistract-dialog h1, .dedistract-dialog p {
     margin-top: 1em;
     margin-bottom: 1em;

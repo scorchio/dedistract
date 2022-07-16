@@ -1,28 +1,30 @@
 {
-  "manifest_version": 2,
+    "name": "De-distract myself",
+    "description": "Block certain pages!",
+    "version": "3.0",
+    "manifest_version": 3,
 
-  "name": "De-distract myself",
-  "description": "Block certain pages",
-  "version": "2.0",
-
-  "content_scripts": [
-    {
-      "matches": [
-          "https://*.reddit.com/*",
-          "https://*.youtube.com/*",
-          "https://*.facebook.com/*",
-          "https://*.twitter.com/*",
-          "https://*.telex.hu/*",
-          "https://*.hvg.hu/*",
-          "https://*.pinterest.com/*",
-          "https://*.wikipedia.org/*",
-          "https://*.linkedin.com/*",
-          "https://*.gmail.com/*",
-          "https://mail.google.com/*"
-      ],
-      "css": ["shared.css"],
-      "js": ["shared.js"],
-      "run_at": "document_start"
+    "action": {},
+    "permissions": [
+        "declarativeNetRequest",
+        "declarativeNetRequestFeedback",
+        "declarativeNetRequestWithHostAccess",
+        "activeTab",
+        "scripting",
+        "debugger"
+    ],
+    "host_permissions": [
+        "http://*/",
+        "https://*/"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "declarative_net_request" : {
+        "rule_resources" : [{
+            "id": "ruleset_1",
+            "enabled": true,
+            "path": "rules.json"
+        }]
     }
-  ]
 }

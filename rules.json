@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "priority": 1,
+        "action": {
+            "type": "redirect",
+            "redirect": {
+                "extensionPath": "/redirect.html"
+            }
+        },
+        "condition": {
+            "urlFilter": "*",
+            "requestDomains": [
+                "reddit.com",
+                "youtube.com",
+                "facebook.com",
+                "twitter.com",
+                "telex.hu",
+                "hvg.hu",
+                "pinterest.com",
+                "linkedin.com"
+            ],
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame",
+                "xmlhttprequest"
+            ]
+        }
+    }
+]

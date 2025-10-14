@@ -22,6 +22,10 @@ ytd-mini-guide-entry-renderer[aria-label=Shorts] {
   display: none;
 }
 
+.ytd-watch-next-secondary-results-renderer {
+  display: none;
+}
+
 /* Hide endscreen related videos */
 .ytp-endscreen-content {
   display: none;

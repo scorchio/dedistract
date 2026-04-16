@@ -31,9 +31,11 @@ function addBanner() {
       interval = setInterval(() => {
         const remaining = delayInSeconds - (+new Date() - start) / 1000
         if (remaining < 0) {
-          setEnabled(false)
-          document.body.removeChild(dialog)
-          clearInterval(interval)
+          appendDismissalReason(window.location.hostname, "unlocked", new Date(), () => {
+            setEnabled(false)
+            document.body.removeChild(dialog)
+            clearInterval(interval)
+          })
         } else {
           document.querySelector(".dedistract-countdown").textContent = remaining.toFixed(0)
         }
@@ -45,14 +47,31 @@ function addBanner() {
   })
 }
 
+// Function to retrieve the stored list of dismissal reasons
+function retrieveDismissalReasons(callback) {
+  chrome.storage.sync.get({ dismissalReasons: [] }, function(result) {
+    callback(result.dismissalReasons);
+  });
+}
+
+// Function to store the updated list of dismissal reasons
+function storeDismissalReasons(updatedList, callback) {
+  chrome.storage.sync.set({ dismissalReasons: updatedList }, callback);
+}
+
+// Function to append a new dismissal reason to the list
+function appendDismissalReason(domain, message, time, callback) {
+  retrieveDismissalReasons(function(dismissalReasons) {
+    console.log("Dismissal reasons", dismissalReasons)
+    dismissalReasons.push({ domain: domain, message: message, time: time.toISOString() });
+    storeDismissalReasons(dismissalReasons, callback);
+  });
+}
+
 document.addEventListener('readystatechange', (event) => {
    if (document.readyState === 'interactive') {
         addBanner();
    }
-});
-
-window.addEventListener('DOMContentLoaded', (event) => {
-    //addBanner()
 });
 
 // Lots of sites are now single-page apps which use pushState. This makes it
@@ -100,6 +119,7 @@ function addPathChangeListener(callback) {
   window.addEventListener("keydown", beginPolling, /* capture = */ true)
   window.addEventListener("popstate", beginPolling, /* capture = */ true)
 }
+
 
 const disableClassName = "disable-dedistract"
 

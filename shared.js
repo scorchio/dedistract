@@ -43,6 +43,7 @@ function addBanner() {
     })
     dialog.addEventListener("mouseup", () => {
       clearInterval(interval)
+      document.querySelector(".dedistract-countdown").textContent = delayInSeconds
     })
   })
 }

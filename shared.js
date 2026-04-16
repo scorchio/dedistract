@@ -16,8 +16,8 @@ function addBanner() {
       <div class="dedistract-dialog">
         <div>
           <h1>Szóval... mégis szeretnéd itt múlatni az idődet?</h1>
-          <img src="https://media.giphy.com/media/Pn1gZzAY38kbm/giphy.gif" />
-          <p>Ez rendben is van akkor, hogyha nem akartál eredetileg mással foglalkozni.</p>
+          <div id="breath-circle"></div>
+          <p>Előtte azért végy pár mély levegőt.</p>
           <p>Ha lenne jobb dolgod, akkor még mindig nem késő, csak zárd be ezt az oldalt :)</p>
           <p>Ha viszont biztos vagy benne, hogy szeretnéd feloldani az oldalt, klikkelj és tarts nyomva a bal gombot <span class="dedistract-countdown">${delayInSeconds}</span> másodpercig.</p>
         </div>

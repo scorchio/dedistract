@@ -36,10 +36,11 @@
 
 .dedistract-dialog {
   position: fixed;
-  width: 50vw;
-  height: 50vh;
-  top: 25vh;
-  left: 25vw;
+  width: min(560px, 90vw);
+  max-height: 90vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 9999999;
   background: white;
   border: 1px solid black;
@@ -48,8 +49,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: clamp(14px, 1.5vw, 18px);
   font-family: 'Lucida Grande';
+  overflow-y: auto;
 }
 .dedistract-dialog > div {
   display: block;
@@ -60,7 +62,7 @@
 }
 
 .dedistract-dialog h1 {
-    font-size: 24px;
+    font-size: clamp(18px, 2vw, 24px);
     line-height: 1.5;
 }
 
@@ -76,8 +78,8 @@
 /* animation for a grey circle that grows and shrinks slowly to guide breathing */
 #breath-circle {
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: clamp(60px, 8vw, 100px);
+  height: clamp(60px, 8vw, 100px);
   background: white;
   border: 3px solid #ccc;
   border-radius: 50%;
